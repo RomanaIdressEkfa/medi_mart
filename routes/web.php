@@ -83,6 +83,10 @@ Route::get('/cart_delete/{id}',[CartController::class,'delete'])->name('cart_del
 //cart_details end
 
 
+//frontend part start
+Route::get('/', [FrontendController::class, 'home']);
+
+
 
 //Login->Register->And Profile Route Default START------------------
 //---------------------------------------------------------------------------------//
