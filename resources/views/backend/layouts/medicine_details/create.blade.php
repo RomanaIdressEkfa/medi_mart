@@ -32,6 +32,17 @@
 @endif
     <form action="{{route('medicine_details_store')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" name="category">
+                <option selected>Category_Name</option>
+
+                @foreach ($categories as $category )
+                <option value="{{$category->id}}">{{$category->category_name}}</option>
+                @endforeach
+
+              </select>
+        </div>
+
       <div class="mb-3">
         <label for="vendorName" class="form-label">Medicine Name</label>
         <input type="text" class="form-control" id="medicineName" name="medicine_name" required>

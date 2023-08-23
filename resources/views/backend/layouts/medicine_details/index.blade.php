@@ -13,7 +13,9 @@
 </head>
 <body>
   <div class="container mt-5">
+
     <h2>Medicine List</h2>
+
     <table class="table">
       <thead>
         <tr>
@@ -22,6 +24,7 @@
           <th>Medicine Name</th>
           <th>Medicine Image</th>
           <th>Price</th>
+          <th>Store_Name</th>
           <th>Action</th>
 
         </tr>
@@ -38,15 +41,15 @@
                 <img style="width:150px;" src="{{asset('images/products/'.$product->medicine_image)}}" alt="">
             </td>
             <td>{{$product->price}}</td>
-
-
+            @foreach ($vendors as $vendor )
+            <td>{{ $vendor->id ? $vendor->store_name: 'no store name available'}}</td>
+            @endforeach
             <td>
                 <a href="{{route('medicine_details_edit',$product->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('medicine_details_delete',$product->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach
-
 
         <!-- Add more rows as needed -->
     </tbody>

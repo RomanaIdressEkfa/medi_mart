@@ -9,4 +9,9 @@ class Vendor_Details extends Model
 {
     use HasFactory;
     protected $guarded =[];
+
+    
+    public function medicines(){
+        return $this->hasMany(Medicine::class);
+    }
 }
