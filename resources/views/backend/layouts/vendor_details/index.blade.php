@@ -53,7 +53,7 @@
     </tbody>
     </table>
   </div>
-  <a href="{{route('vendor_details_create')}}" class="btn btn-success mt-5 mb-5">Please Create Meeee!!!!!</a>
+  <a href="{{route('vendor_details_create')}}" class="btn btn-success mt-5 mb-5">Add Product!</a>
   <!-- Include Bootstrap JS (Optional if you're not using any Bootstrap JS components) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>

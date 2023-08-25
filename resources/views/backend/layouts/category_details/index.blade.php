@@ -44,7 +44,7 @@
             </tbody>
         </table>
     </div>
-    <a href="{{route('category_details_create')}}" class="btn btn-success mt-5 mb-5">Please Create Meeee!!!!!</a>
+    <a href="{{route('category_details_create')}}" class="btn btn-success mt-5 mb-5">Add Product!</a>
 </body>
 </html>
 
