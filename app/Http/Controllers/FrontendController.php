@@ -17,5 +17,16 @@ class FrontendController extends Controller
         return view('frontend.master', compact('categories', 'products','vendors'));
     }
 
+    public function home2()
+    {
+        // $categories = Category::all();
+        // $products = Medicine::all();
+        $vendors = Vendor_Details::all();
+        return view('frontend.master', compact('categories', 'products','vendors'));
+    }
+public function singleProduct() {
+
+    return view('frontend.single_product');
+}
 
 }

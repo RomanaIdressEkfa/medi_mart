@@ -11,13 +11,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category List</title>
+    <title>Cart List</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-4">
-        <h2>Category List</h2>
+        <h2>Cart List</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -52,7 +52,7 @@
             </tbody>
         </table>
     </div>
-    <a href="{{route('cart_create')}}" class="btn btn-success mt-5 mb-5">Please Create Meeee!!!!!</a>
+    <a href="{{route('cart_create')}}" class="btn btn-success mt-5 mb-5">Add Product!</a>
 </body>
 </html>
 

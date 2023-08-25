@@ -41,9 +41,11 @@
                 <img style="width:150px;" src="{{asset('images/products/'.$product->medicine_image)}}" alt="">
             </td>
             <td>{{$product->price}}</td>
+
             @foreach ($vendors as $vendor )
-            <td>{{ $vendor->id ? $vendor->store_name: 'no store name available'}}</td>
+            <td>{{ $vendor->store_name}}</td>
             @endforeach
+
             <td>
                 <a href="{{route('medicine_details_edit',$product->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('medicine_details_delete',$product->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
@@ -55,7 +57,7 @@
     </tbody>
     </table>
   </div>
-  <a href="{{route('medicine_details_create')}}" class="btn btn-success mt-5 mb-5">Please Create Meeee!!!!!</a>
+  <a href="{{route('medicine_details_create')}}" class="btn btn-success mt-5 mb-5">Add Product!</a>
   <!-- Include Bootstrap JS (Optional if you're not using any Bootstrap JS components) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
