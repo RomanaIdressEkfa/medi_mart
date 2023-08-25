@@ -28,5 +28,13 @@ public function singleProduct() {
 
     return view('frontend.single_product');
 }
+public function addToCart() {
+
+    return view('frontend.add_to_cart');
+}
+public function proceedToCheckout() {
+
+    return view('frontend.proceed_to_checkout');
+}
 
 }
