@@ -314,7 +314,7 @@
                                         </div>
                                         <div class="add-actions">
                                             <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="{{route('single_product')}}">Add to cart</a></li>
+                                                <li class="add-cart active"><a href="{{route('single_product',$product->id)}}">Add to cart</a></li>
                                                 <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                 <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                             </ul>
@@ -356,7 +356,7 @@
                         </div>
                         <!-- Li's Section Area End Here -->
                         <section class="py-5">
-                           
+
 
                             <div class="row">
                            @foreach ( $vendors as $product )
@@ -393,7 +393,7 @@
                                         </div>
                                         <div class="add-actions">
                                             <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="{{route('single_product')}}">Add to cart</a></li>
+                                                <li class="add-cart active"><a href="{{route('single_product',$product->id)}}">Add to cart</a></li>
                                                 <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                                 <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                             </ul>

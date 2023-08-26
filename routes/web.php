@@ -85,9 +85,10 @@ Route::get('/cart_delete/{id}',[CartController::class,'delete'])->name('cart_del
 
 //frontend part start
 Route::get('/', [FrontendController::class, 'home']);
-Route::get('/single_product', [FrontendController::class, 'singleProduct'])->name('single_product');
+Route::get('/single_product/{id}', [FrontendController::class, 'singleProduct'])->name('single_product');
 Route::get('/add_to_cart', [FrontendController::class, 'addToCart'])->name('add_to_cart');
 Route::get('/proceed_to_checkout', [FrontendController::class, 'proceedToCheckout'])->name('proceed_to_checkout');
+
 
 
 

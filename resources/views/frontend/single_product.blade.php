@@ -63,6 +63,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            {{-- @dd($medicines->price) --}}
                             <!-- Header Top Left Area End Here -->
                             <!-- Begin Header Top Right Area -->
                             <div class="col-lg-9 col-md-8">
@@ -441,18 +442,16 @@
                         <div class="col-lg-5 col-md-6">
                            <!-- Product Details Left -->
                             <div class="product-details-left">
+
                                 <div class="product-details-images slider-navigation-1">
-
-
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{{asset('ui/frontend')}}/images/product/large-size/1.jpg" data-gall="myGallery">
-                                            <img src="{{asset('ui/frontend')}}/images/product/large-size/1.jpg" alt="product image">
-                                        </a>
-                                    </div>
-
-
+                                <div class="lg-image">
+                                    {{-- <a class="popup-img venobox vbox-item" href="{{asset('ui/frontend')}}/images/product/large-size/1.jpg" data-gall="myGallery">
+                                        <img src="{{asset('images/products/'.$product->medicine_image ??'')}}" alt="product image">
+                                    </a> --}}
+                                </div>
 
                                 </div>
+
                                 <div class="product-details-thumbs slider-thumbs-1">
                                     <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/1.jpg" alt="product image thumb"></div>
                                     <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/2.jpg" alt="product image thumb"></div>
@@ -468,7 +467,7 @@
                         <div class="col-lg-7 col-md-6">
                             <div class="product-details-view-content pt-60">
                                 <div class="product-info">
-                                    <h2>Today is a good day Framed poster</h2>
+                                    <h2>{{$product->medicine_name}}</h2>
                                     <span class="product-details-ref">Reference: demo_15</span>
                                     <div class="rating-box pt-20">
                                         <ul class="rating rating-with-review-item">
@@ -555,6 +554,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
