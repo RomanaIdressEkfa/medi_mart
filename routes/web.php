@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\VendorDetailsController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,14 @@ Route::post('/vendor_details_update/{id}',[VendorDetailsController::class,'updat
 Route::get('/vendor_details_delete/{id}',[VendorDetailsController::class,'delete'])->name('vendor_details_delete');
 //vendor_details end
 
+//Slider start
+Route::get('/slider_details_index',[SliderController::class,'index'])->name('slider_details_index');
+Route::get('/slider_details_create',[SliderController::class,'create'])->name('slider_details_create');
+Route::post('/slider_store',[SliderController::class,'store'])->name('slider_store');
+Route::get('/slider_details_edit/{id}',[SliderController::class,'edit'])->name('slider_details_edit');
+Route::post('/slider_details_update/{id}',[SliderController::class,'update'])->name('slider_details_update');
+Route::get('/slider_details_delete/{id}',[SliderController::class,'delete'])->name('slider_details_delete');
+//Slider_details end
 
 //category_details start
 Route::get('/category_details_index',[CategoryController::class,'index'])->name('category_details_index');
