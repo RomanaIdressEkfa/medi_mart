@@ -55,6 +55,10 @@
         <label for="location" class="form-label">Price</label>
         <input type="text" class="form-control" id="price" name="price" required>
       </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Medicine Description</label>
+        <input type="text" class="form-control" id="medicine_details" name="medicine_details" required>
+      </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

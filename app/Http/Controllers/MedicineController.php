@@ -49,6 +49,7 @@ class MedicineController extends Controller
             'medicine_name'=>'required',
             'medicine_image'=>'required|mimes:png,jpg,jpeg',
             'price'=>'required',
+            'medicine_details'=>'required',
             // 'category_id'=>'required',
         ]);
         $imageName='';
@@ -61,6 +62,7 @@ class MedicineController extends Controller
             'medicine_name'=>$request->medicine_name,
             'medicine_image'=>$imageName,
             'price'=>$request->price,
+            'medicine_details'=>$request->medicine_details,
             'category_id'=>$request->category,
             'vendor_details_id'=>$request->vendor_details,
 
@@ -95,6 +97,7 @@ $product= Medicine::findOrFail($id);
         $request->validate([
             'medicine_name'=>'required',
             'price'=>'required',
+            'medicine_details'=>'required',
         ]);
         $imageName='';
         $deleteOldImage= 'images/products/'.$product->medicine_image;
@@ -113,6 +116,7 @@ $product= Medicine::findOrFail($id);
         Medicine::where('id', $id)->update([
             'medicine_name'=>$request->medicine_name,
             'medicine_image'=>$imageName,
+            'medicine_details'=>$request->medicine_details,
             'price'=>$request->price,
         ]);
         session()->flash('message', 'Post successfully updated.');

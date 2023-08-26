@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('medicine_name');
             $table->text('medicine_image')->nullable();
             $table->integer('price')->nullable();
+            $table->text('medicine_details')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('vendor_details_id')->nullable();
             $table->timestamps();
