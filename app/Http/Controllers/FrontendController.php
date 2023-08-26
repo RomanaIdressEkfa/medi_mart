@@ -24,9 +24,22 @@ class FrontendController extends Controller
         $vendors = Vendor_Details::all();
         return view('frontend.master', compact('categories', 'products','vendors'));
     }
-public function singleProduct() {
+    public function singleProduct($id) {
+        $products=Medicine::all();
+        $products=Medicine::find($id);
+        // dd($medicines);
+        // $vendors=Vendor_Details::all();
+        // $vendors=Vendor_Details::find($id);
+        return view('frontend.single_product',compact('products'));
+    }
+    public function addToCart() {
 
-    return view('frontend.single_product');
+        return view('frontend.add_to_cart');
+    }
+    public function proceedToCheckout() {
+
+        return view('frontend.proceed_to_checkout');
 }
+
 
 }
