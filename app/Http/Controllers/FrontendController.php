@@ -25,12 +25,12 @@ class FrontendController extends Controller
         return view('frontend.master', compact('categories', 'products','vendors'));
     }
     public function singleProduct($id) {
-        $products=Medicine::all();
-        $products=Medicine::find($id);
+        // $products=Medicine::all();
+        $product=Medicine::find($id);
         // dd($medicines);
         // $vendors=Vendor_Details::all();
         // $vendors=Vendor_Details::find($id);
-        return view('frontend.single_product',compact('products'));
+        return view('frontend.single_product',compact('product'));
     }
     public function addToCart() {
 

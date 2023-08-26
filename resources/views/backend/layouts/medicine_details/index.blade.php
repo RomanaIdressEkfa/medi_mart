@@ -23,6 +23,7 @@
          <th>ID</th>
           <th>Medicine Name</th>
           <th>Medicine Image</th>
+          <th>Medicine Description</th>
           <th>Price</th>
           <th>Store_Name</th>
           <th>Action</th>
@@ -40,6 +41,7 @@
             <td>
                 <img style="width:150px;" src="{{asset('images/products/'.$product->medicine_image)}}" alt="">
             </td>
+            <td>{{$product->medicine_details}}</td>
             <td>{{$product->price}}</td>
 
             @foreach ($vendors as $vendor )

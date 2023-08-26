@@ -445,21 +445,13 @@
 
                                 <div class="product-details-images slider-navigation-1">
                                 <div class="lg-image">
-                                    {{-- <a class="popup-img venobox vbox-item" href="{{asset('ui/frontend')}}/images/product/large-size/1.jpg" data-gall="myGallery">
+                                    <a class="popup-img venobox vbox-item" href="{{asset('ui/frontend')}}/images/product/large-size/1.jpg" data-gall="myGallery">
                                         <img src="{{asset('images/products/'.$product->medicine_image ??'')}}" alt="product image">
-                                    </a> --}}
+                                    </a>
                                 </div>
 
                                 </div>
 
-                                <div class="product-details-thumbs slider-thumbs-1">
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/1.jpg" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/2.jpg" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/3.jpg" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/4.jpg" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/5.jpg" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{{asset('ui/frontend')}}/images/product/small-size/6.jpg" alt="product image thumb"></div>
-                                </div>
                             </div>
                             <!--// Product Details Left -->
                         </div>
@@ -481,12 +473,11 @@
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">$57.98</span>
+                                        <span class="new-price new-price-2">{{$product->price}}</span>
                                     </div>
                                     <div class="product-desc">
                                         <p>
-                                            <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
-                                            </span>
+                                            <span>{{$product->medicine_details}}</span>
                                         </p>
                                     </div>
                                     <div class="product-variants">
