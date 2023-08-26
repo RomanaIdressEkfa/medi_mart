@@ -181,6 +181,8 @@
                 <!-- Mobile Menu Area End Here -->
             </header>
             <!-- Header Area End Here -->
+
+            
             <!-- Begin Slider With Banner Area -->
             <div class="slider-with-banner mb-10">
                 <div class="container">
