@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Medicine;
 use App\Models\Vendor_Details;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
@@ -32,10 +33,8 @@ class FrontendController extends Controller
         // $vendors=Vendor_Details::find($id);
         return view('frontend.single_product',compact('product'));
     }
-    public function addToCart() {
 
-        return view('frontend.add_to_cart');
-    }
+
     public function proceedToCheckout() {
 
         return view('frontend.proceed_to_checkout');

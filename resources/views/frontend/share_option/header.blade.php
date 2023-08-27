@@ -23,6 +23,9 @@
                     </form>
                     <!-- Header Middle Searchbox Area End Here -->
                     <!-- Begin Header Middle Right Area -->
+                    @php
+                        $cartArray=cartArray()
+                    @endphp
                     <div class="header-middle-right">
                         <ul class="hm-menu">
                             <!-- Begin Header Middle Wishlist Area -->
@@ -37,44 +40,42 @@
                             <li class="hm-minicart">
                                 <div class="hm-minicart-trigger">
                                     <span class="item-icon"></span>
-                                    <span class="item-text">£80.00
-                                        <span class="cart-item-count">2</span>
+                                    <span class="item-text">£00.00
+                                        {{-- <span class="cart-item-count"></span> --}}
+                                        <span class="cart-item-count"><?=count($cartArray) ?></span>
                                     </span>
                                 </div>
                                 <span></span>
                                 <div class="minicart">
                                     <ul class="minicart-product-list">
-                                        <li>
-                                            <a href="single-product.html" class="minicart-product-image">
-                                                <img src="{{asset('ui/frontend')}}/images/product/small-size/5.jpg" alt="cart products">
-                                            </a>
-                                            <div class="minicart-product-details">
-                                                <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                <span>£40 x 1</span>
-                                            </div>
-                                            <button class="close" title="Remove">
-                                                <i class="fa fa-close"></i>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <a href="single-product.html" class="minicart-product-image">
-                                                <img src="{{asset('ui/frontend')}}/images/product/small-size/6.jpg" alt="cart products">
-                                            </a>
-                                            <div class="minicart-product-details">
-                                                <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                <span>£40 x 1</span>
-                                            </div>
-                                            <button class="close" title="Remove">
-                                                <i class="fa fa-close"></i>
-                                            </button>
-                                        </li>
+@foreach ($cartArray as $cart)
+@php
+    $images=$cart['attribute'][0];
+    $images=explode('|',$images);
+    $images=$images[0];
+@endphp
+
+<li>
+    <a href="single-product.html" class="minicart-product-image">
+        <img src="{{asset('images/products/'.$images)}}" alt="cart products">
+    </a>
+    <div class="minicart-product-details">
+        <h6><a href="single-product.html">{{$cart['name']}}</a></h6>
+        <span>{{$cart['quantity']}}</span>
+    </div>
+    <button class="close" title="Remove">
+        <i class="fa fa-close"></i>
+    </button>
+</li>
+@endforeach
+
                                     </ul>
-                                    <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                    <p class="minicart-total">SUBTOTAL: <span>£{{Cart::getTotal()}}</span></p>
                                     <div class="minicart-button">
-                                        <a href="shopping-cart.html" class="li-button li-button-fullwidth li-button-dark">
+                                        <a href="{{route('check_out')}}" class="li-button li-button-fullwidth li-button-dark">
                                             <span>View Full Cart</span>
                                         </a>
-                                        <a href="checkout.html" class="li-button li-button-fullwidth">
+                                        <a href="{{route('check_out')}}" class="li-button li-button-fullwidth">
                                             <span>Checkout</span>
                                         </a>
                                     </div>

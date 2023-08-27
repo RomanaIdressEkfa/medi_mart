@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\VendorDetailsController;
 use Illuminate\Support\Facades\Route;
 
@@ -82,11 +83,21 @@ Route::post('/cart_update/{id}',[CartController::class,'update'])->name('cart_up
 Route::get('/cart_delete/{id}',[CartController::class,'delete'])->name('cart_delete');
 //cart_details end
 
+//slider_details start
+Route::get('/slider_index',[SliderController::class,'index'])->name('slider_index');
+Route::get('/slider_create',[SliderController::class,'create'])->name('slider_create');
+Route::post('/slider_store',[SliderController::class,'store'])->name('slider_store');
+Route::get('/slider_edit/{id}',[SliderController::class,'edit'])->name('slider_edit');
+Route::post('/slider_update/{id}',[SliderController::class,'update'])->name('slider_update');
+Route::get('/slider_delete/{id}',[SliderController::class,'delete'])->name('slider_delete');
+//slider_details end
+
 
 //frontend part start
 Route::get('/', [FrontendController::class, 'home']);
 Route::get('/single_product/{id}', [FrontendController::class, 'singleProduct'])->name('single_product');
-Route::get('/add_to_cart', [FrontendController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/add_to_cart', [CartController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/check_out', [CartController::class, 'checkOut'])->name('check_out');
 Route::get('/proceed_to_checkout', [FrontendController::class, 'proceedToCheckout'])->name('proceed_to_checkout');
 
 
