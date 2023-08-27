@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
+use App\Models\Medicine;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -21,8 +24,6 @@ class CartController extends Controller
 
     public function store(Request $request){
 
-//ONLY for data show---->START CODE//
-
         try{
             $data = $request->all();
             Cart::create($data);
@@ -31,35 +32,6 @@ class CartController extends Controller
             dd($e->getMessage());
         }
 
-        //ONLY for data show---->END CODE//
-
-        //for image and data show---->START CODE//
-
-        // $request->validate([
-        //     'vendor_name'=>'required',
-        //     'store_name'=>'required',
-        //     'store_link'=>'required',
-        //     'location'=>'required',
-        //     'store_image'=>'required|mimes:png,jpg,jpeg',
-
-        // ]);
-        // $imageName='';
-        // if($store_image=$request->file('store_image')){
-        //     $imageName=time().'-'.uniqid().'.'.$store_image->getClientOriginalExtension();
-        //     $store_image->move('images/products',$imageName);
-        // }
-
-        // Order::create([
-        //     'vendor_name'=>$request->vendor_name,
-        //     'store_name'=>$request->store_name,
-        //     'store_link'=>$request->store_link,
-        //     'location'=>$request->location,
-        //     'store_image'=>$imageName,
-        // ]);
-        // session()->flash('message', 'Post successfully updated.');
-        // return redirect()->route('vendor_details_index');
-
-        //for image and data show---->END CODE//
     }
 
 
@@ -80,40 +52,6 @@ class CartController extends Controller
         }catch(Exception $e){
             dd($e->getMessage());
         }
-
-        //for image and data show---->START CODE//
-// $product= Order::findOrFail($id);
-//         $request->validate([
-//             'vendor_name'=>'required',
-//             'store_name'=>'required',
-//             'store_link'=>'required',
-//             'location'=>'required',
-//         ]);
-//         $imageName='';
-//         $deleteOldImage= 'images/products/'.$product->store_image;
-
-//         if($store_image=$request->file('store_image')){
-//             if(file_exists($deleteOldImage)){
-//                 File::delete($deleteOldImage);
-//             }
-//             else{
-//                 $imageName=$product->store_image;
-//             }
-//             $imageName=time().'-'.uniqid().'.'.$store_image->getClientOriginalExtension();
-//             $store_image->move('images/products',$imageName);
-//         }
-
-//         Order::where('id', $id)->update([
-//             'vendor_name'=>$request->vendor_name,
-//             'store_name'=>$request->store_name,
-//             'store_link'=>$request->store_link,
-//             'location'=>$request->location,
-//             'store_image'=>$imageName,
-//         ]);
-//         session()->flash('message', 'Post successfully updated.');
-//         return redirect()->route('vendor_details_index');
-
-        //for image and data show---->END CODE//
     }
 
     public function delete($id)
@@ -121,5 +59,35 @@ class CartController extends Controller
         $product =Cart::find($id);
         $product->delete();
         return redirect()->back();
+    }
+
+    public function addToCart(Request $request) {
+        // $categories = Category::all();
+        // $products = Medicine::all();
+        // $cartItems=DB::table('carts')->where('user_id',auth()->user()->id)->get();
+        $quantity=$request->quantity;
+        $id=$request->id;
+
+        $products=Medicine::where('id',$id)->first();
+        $data['quantity']=$quantity;
+        $data['id']=$products->id;
+        $data['name']=$products->name;
+        $data['price']=$products->price;
+        $data['attribute']=[$products->image];
+
+        Cart::add($data);
+        cartArray();
+        $cartItems=DB::table('carts')->where('user_id',auth()->user()->id)->get();
+        dd($cartItems);
+
+        return redirect()->back();
+
+    }
+    public function checkOut(){
+        $categories = Category::all();
+        $products = Medicine::all();
+        $cartItems=DB::table('carts')->where('user_id',auth()->user()->id)->get();
+
+        return view('frontend.add_to_cart',compact('categories','products','cartItems'));
     }
 }

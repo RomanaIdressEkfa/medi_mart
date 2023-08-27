@@ -83,13 +83,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ( $cartItems as $item )
                                             <tr>
                                                 <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="{{asset('ui/frontend')}}/images/product/small-size/5.jpg" alt="Li's Product Image"></a></td>
-                                                <td class="li-product-name"><a href="#">Accusantium dolorem1</a></td>
-                                                <td class="li-product-price"><span class="amount">$46.80</span></td>
+                                                {{-- <td class="li-product-thumbnail"><a href="#"><img src="{{asset('images/products/'.$item->medicine_image ??'')}}" alt="Li's Product Image"></a></td> --}}
+                                                <td class="li-product-name"><a href="#">{{$item->category_id}}</a></td>
+                                                <td class="li-product-price"><span class="amount">{{$item->total_price}}</span></td>
                                                 <td class="quantity">
-                                                    <label>Quantity</label>
+                                                    <label>{{$item->quantity}}</label>
                                                     <div class="cart-plus-minus">
                                                         <input class="cart-plus-minus-box" value="1" type="text">
                                                         <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
@@ -98,21 +99,9 @@
                                                 </td>
                                                 <td class="product-subtotal"><span class="amount">$70.00</span></td>
                                             </tr>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="{{asset('ui/frontend')}}/images/product/small-size/6.jpg" alt="Li's Product Image"></a></td>
-                                                <td class="li-product-name"><a href="#">Mug Today is a good day</a></td>
-                                                <td class="li-product-price"><span class="amount">$71.80</span></td>
-                                                <td class="quantity">
-                                                    <label>Quantity</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span class="amount">$60.50</span></td>
-                                            </tr>
+                                            @endforeach
+
+
                                         </tbody>
                                     </table>
                                 </div>

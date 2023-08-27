@@ -159,7 +159,7 @@
                                  <div class="col-xl-3 col-lg-4 col-sm-6">
                                  <div class="single-product-wrap">
                                     <div class="product-image">
-                                        <a href="single-product.html">
+                                        <a href="{{route('single_product',$product->id)}}">
                                             <img style="height: 200px;" src="{{asset('images/products/'.$product->medicine_image)}}" alt="Li's Product Image">
                                         </a>
                                         <span class="sticker">New</span>
@@ -185,13 +185,23 @@
                                                 <span class="new-price">{{ $product->price  }} BDT </span>
                                             </div>
                                         </div>
+                                        <form action="{{route('add_to_cart')}}" method="POST">
+                                            @csrf
                                         <div class="add-actions">
                                             <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="{{route('single_product',$product->id)}}">Add to cart</a></li>
-                                                <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                                <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="hidden" name="id" value="{{ $product->id  }}">
+                                                <li class="add-cart active"><a href="">Add to cart</a></li>
+                                                <li><a class="links-details" href=""><i class="fa fa-heart-o"></i></a></li>
+                                                <li>
+                                                    <a href="" title="quick view" class="quick-view-btn"
+                                                    data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <i class="fa fa-eye"></i>
+                                                 </a>
+                                            </li>
                                             </ul>
                                         </div>
+                                    </form>
                                     </div>
                                 </div>
                                 </div>

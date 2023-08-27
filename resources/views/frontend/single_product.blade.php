@@ -129,7 +129,11 @@
                                                     <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
-                                            <a href="{{route('add_to_cart')}}" class="add-to-cart" type="submit">Add to cart</a>
+
+
+                                            <button class="add-to-cart" type="submit" wire:click="addToCart({{$product->id}})">Add to cart</button>
+
+
                                         </form>
                                     </div>
                                     <div class="product-additional-info pt-25">
